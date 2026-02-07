@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>VSPhone Access</title>
+<style>
+    body {
+        background: #0f0f0f;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    .panel {
+        background: #1c1c1c;
+        border-radius: 12px;
+        padding: 20px 24px;
+        width: 340px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    }
+    .title {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 16px;
+    }
+    .row {
+        margin-bottom: 12px;
+    }
+    .label {
+        font-size: 13px;
+        opacity: 0.8;
+        margin-bottom: 4px;
+    }
+    .field {
+        display: flex;
+        align-items: center;
+        background: #111;
+        border-radius: 8px;
+        padding: 8px 10px;
+    }
+    .value {
+        flex: 1;
+        font-family: monospace;
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    button {
+        background: #3b82f6;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        padding: 6px 10px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+    button:active {
+        transform: scale(0.96);
+    }
+    .open-btn {
+        width: 100%;
+        margin-top: 14px;
+        padding: 10px;
+        font-size: 14px;
+        background: #22c55e;
+    }
+</style>
+</head>
+<body>
+
+<div class="panel">
+    <div class="title">Đây là app VSPhone cho bắp chuối</div>
+
+    <div class="row">
+        <div class="label">Tài khoản đăng nhập</div>
+        <div class="field">
+            <div class="value" id="user">USERNAME_HERE</div>
+            <button onclick="copyText('user')">Copy</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="label">Mật khẩu</div>
+        <div class="field">
+            <div class="value" id="pass">PASSWORD_HERE</div>
+            <button onclick="copyText('pass')">Copy</button>
+        </div>
+    </div>
+
+    <button class="open-btn" onclick="openVSPhone()">Mở VSPhone</button>
+</div>
+
+<script>
+function copyText(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text);
+}
+
+function openVSPhone() {
+    window.open(
+        "https://cloud.vsphone.com/#vsphone_auth_eyJ0b2tlbiI6ImllejY0Zk13RUhQMEtPeTZ1MW12NTk5SW54OU1sTzFnIiwidXNlcklkIjoiNTQxMDM2NjMiLCJ0aW1lc3RhbXAiOjE3NzAyMDEwNTgwNDJ9",
+        "_blank"
+    );
+}
+</script>
+
+</body>
+</html>
